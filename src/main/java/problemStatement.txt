@@ -1,0 +1,24 @@
+/*
+		 * " ASSIGNMENT QUESTION This round comprises a practical technical test that
+		 * the candidate is expected to complete in 2 hours.
+		 * 
+		 * Objective: Run an Automation Test session on BrowserStack’s infrastructure.
+		 * 
+		 * Create a free trial account on BrowserStack to automate this test case using
+		 * any programming language of your choice.
+		 * 
+		 * Using Selenium, load the flipkart.com desktop home page. Search for the
+		 * product ""Samsung Galaxy S10"" on that page. On the search results click on
+		 * ""Mobiles"" in categories. Apply the following filters (in filters section on
+		 * the left hand side): Brand: Samsung Select Flipkart assured Sort the entries
+		 * with Price -> High to Low. Read the set of results that show up on page 1.
+		 * Create a list with the following parameters, and print this on the console.
+		 * 
+		 * Product Name Display Price Link to Product Details Page Please configure such
+		 * that the same test case is run in parallel on different desktop browser / OS
+		 * combinations, using the 5 parallels of your free trial account on
+		 * BrowserStack Automate product.
+		 * 
+		 * Optional: Configure a Jenkins CI job locally for this test and run these
+		 * parallels from Jenkins."
+		 */
