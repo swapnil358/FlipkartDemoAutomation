@@ -10,3 +10,8 @@
 [1120/145045.832:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1120/153804.407:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1120/174340.895:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1120/234915.489:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\n\AppData\Local\Temp\scoped_dir15332_1971247710\Crashpad\attachments\ea2e13cb-a926-4dcc-8c40-b549f83b8ebc: The system cannot find the path specified. (0x3)
+[1121/001802.045:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1121/193213.127:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1121/193829.249:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1123/145732.889:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

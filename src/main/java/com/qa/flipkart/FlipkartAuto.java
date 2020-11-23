@@ -1,6 +1,10 @@
 package com.qa.flipkart;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -12,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,22 +24,45 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class FlipkartAuto {
+import com.qa.testBase.Testbase;
+
+public class FlipkartAuto extends Testbase {
 
 	public static WebDriver driver = null;
 
+	@FindBy(xpath = "//div[@class='_30jeq3 _1_WHN1']")
+	WebElement List_priceName;
+
+	@FindBy(xpath = "//div[@class='_3pLy-c row']//div/div[@class='_4rR01T']")
+	WebElement List_productName;
+
+	/*
+	 * @FindBy(xpath = "//input[@name='pincode']") WebElement pincode;
+	 * 
+	 * @FindBy(xpath = "addressLine2") WebElement locality;
+	 * 
+	 * @FindBy(xpath = "//input[@name='pincode']") WebElement pincode;
+	 * 
+	 * @FindBy(xpath = "//input[@name='pincode']") WebElement pincode;
+	 */
+
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\n\\Desktop\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("http://www.flipkart.com/");
+		initialisation();
+	}
 
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.findElement(By.xpath("//button[contains(text(),'✕')]")).click();
-		driver.navigate().refresh();
+	@Test
+	public void login() throws InterruptedException {
+		String username = "//*[@class='IiD88i _351hSN']//input[@type='text'][1]";
+		String password = "//*[@type='password']";
+
+		WebElement user = driver.findElement(By.xpath(username));
+		user.sendKeys("9503060718");
+		WebElement pass = driver.findElement(By.xpath(password));
+		pass.sendKeys("Qwerty@123");
+
+		driver.findElement(By.xpath("//button[@class='_2KpZ6l _2HKlqd _3AWRsL' and @type='submit']")).click();
+		Thread.sleep(5000);
 
 	}
 
@@ -156,10 +184,61 @@ public class FlipkartAuto {
 		addToCartBtn.click();
 		Thread.sleep(5000);
 
-		
 		WebElement placeOrder = driver.findElement(By.xpath("//button[contains(.,'Place Order')]"));
 		placeOrder.click();
 
+	}
+
+	@Test
+	public void dataDrivenForSearch() throws InterruptedException {
+		login();
+		WebElement profile = driver.findElement(By.xpath("//div[contains(text(),'Swapnil')]"));
+		Actions action = new Actions(driver);
+		action.moveToElement(profile).perform();
+		Thread.sleep(5000);
+		action.build().perform();
+	}
+
+	@Test
+	public <E> void getProductNameAndPrice() throws InterruptedException {
+		login();
+		ProductSearch();
+
+		List<WebElement> List_productName = driver
+				.findElements(By.xpath("//div[@class='_3pLy-c row']//div/div[@class='_4rR01T']"));
+		List<WebElement> List_productPrice = driver.findElements(By.xpath("//div[@class='_30jeq3 _1_WHN1']"));
+
+		HashMap<Integer, String> finalMap = new HashMap<Integer, String>();
+
+		String productName;
+		String productPrice;
+		int productPriceInt;
+
+		for (int i = 0; i < List_productName.size(); i++) {
+			productName = List_productName.get(i).getText();
+			productPrice = List_productPrice.get(i).getText().replaceAll("[^0-9]", "");
+			productPriceInt = Integer.parseInt(productPrice);
+
+			finalMap.put(productPriceInt, productName);
+
+		}
+		System.out.println(finalMap);
+
+		Set<Integer> fetchKey = finalMap.keySet();
+		System.out.println(fetchKey);
+
+		ArrayList<Integer> arrKey = new ArrayList<Integer>(fetchKey);
+		Collections.sort(arrKey);
+		
+		int high_price = arrKey.get(arrKey.size()-1);
+		
+		//Low price is
+		int low_price = arrKey.get(0);
+		
+		
+		System.out.println("Highest value: "+ high_price);
+		System.out.println("Lowest value: "+ low_price);
+		
 	}
 
 	@AfterMethod

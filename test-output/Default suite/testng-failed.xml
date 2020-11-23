@@ -5,8 +5,8 @@
     <classes>
       <class name="com.qa.flipkart.FlipkartAuto">
         <methods>
-          <include name="addToCartProduct"/>
           <include name="tearDown"/>
+          <include name="FilterValurRange"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.qa.flipkart.FlipkartAuto -->
