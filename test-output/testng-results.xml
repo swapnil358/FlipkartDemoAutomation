@@ -2,21 +2,21 @@
 <testng-results skipped="0" failed="1" ignored="8" total="9" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="29492" started-at="2020-11-23T09:17:22Z" finished-at="2020-11-23T09:17:52Z">
+  <suite name="Default suite" duration-ms="25610" started-at="2020-11-23T13:33:37Z" finished-at="2020-11-23T13:34:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="29492" started-at="2020-11-23T09:17:22Z" finished-at="2020-11-23T09:17:52Z">
+    <test name="Default test" duration-ms="25610" started-at="2020-11-23T13:33:37Z" finished-at="2020-11-23T13:34:03Z">
       <class name="com.qa.flipkart.FlipkartAuto">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="setUp" is-config="true" duration-ms="29331" started-at="2020-11-23T09:17:22Z" finished-at="2020-11-23T09:17:52Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="setUp" is-config="true" duration-ms="25362" started-at="2020-11-23T13:33:37Z" finished-at="2020-11-23T13:34:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="FilterValurRange()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="FilterValurRange" duration-ms="30" started-at="2020-11-23T09:17:52Z" finished-at="2020-11-23T09:17:52Z">
+        <test-method status="FAIL" signature="ProductSearch()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="ProductSearch" duration-ms="26" started-at="2020-11-23T13:34:03Z" finished-at="2020-11-23T13:34:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-at com.qa.flipkart.FlipkartAuto.ProductSearch(FlipkartAuto.java:71)
-at com.qa.flipkart.FlipkartAuto.FilterValurRange(FlipkartAuto.java:136)
+at com.qa.flipkart.FlipkartAuto.login(FlipkartAuto.java:60)
+at com.qa.flipkart.FlipkartAuto.ProductSearch(FlipkartAuto.java:72)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -47,12 +47,12 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FilterValurRange -->
-        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="tearDown" is-config="true" duration-ms="1" started-at="2020-11-23T09:17:52Z" finished-at="2020-11-23T09:17:52Z">
+        </test-method> <!-- ProductSearch -->
+        <test-method status="FAIL" signature="tearDown()[pri:0, instance:com.qa.flipkart.FlipkartAuto@1bce4f0a]" name="tearDown" is-config="true" duration-ms="5" started-at="2020-11-23T13:34:03Z" finished-at="2020-11-23T13:34:03Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-at com.qa.flipkart.FlipkartAuto.tearDown(FlipkartAuto.java:246)
+at com.qa.flipkart.FlipkartAuto.tearDown(FlipkartAuto.java:250)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

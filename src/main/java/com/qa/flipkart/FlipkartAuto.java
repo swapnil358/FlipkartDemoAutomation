@@ -53,6 +53,7 @@ public class FlipkartAuto extends Testbase {
 
 	@Test
 	public void login() throws InterruptedException {
+		
 		String username = "//*[@class='IiD88i _351hSN']//input[@type='text'][1]";
 		String password = "//*[@type='password']";
 
@@ -68,6 +69,7 @@ public class FlipkartAuto extends Testbase {
 
 	@Test
 	public void ProductSearch() throws InterruptedException {
+		login();
 		WebElement sn = driver.findElement(By.xpath("//input[@title='Search for products, brands and more']"));
 		sn.sendKeys("tv");
 		WebElement clikcSubmit = driver.findElement(By.xpath("//button[@type='submit']"));
@@ -132,6 +134,8 @@ public class FlipkartAuto extends Testbase {
 
 	@Test
 	public void FilterValurRange() throws InterruptedException {
+		
+		login();
 
 		ProductSearch();
 
@@ -168,7 +172,7 @@ public class FlipkartAuto extends Testbase {
 			}
 		}
 
-		String parentWinHandle = driver.getWindowHandle();
+		//String parentWinHandle = driver.getWindowHandle();
 		String subWindowHandle = null;
 		Set<String> handle = driver.getWindowHandles();
 		Iterator<String> it = handle.iterator();

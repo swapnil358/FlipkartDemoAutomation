@@ -43,12 +43,12 @@ public class Testbase {
 		String browserName = pro.getProperty("browser");
 
 		if (browserName.equals("chrome")) {
-			/*
-			 * System.setProperty("webdriver.chrome.driver",
-			 * "C:\\Users\\n\\Desktop\\chromedriver_win32\\chromedriver.exe");
-			 */
 			
-			WebDriverManager.chromedriver().setup();
+			  System.setProperty("webdriver.chrome.driver",
+			  "C:\\Users\\n\\Desktop\\chromedriver_win32\\chromedriver.exe");
+			 
+			
+			//WebDriverManager.chromedriver().setup();
 			
 			driver = new ChromeDriver();
 
@@ -67,7 +67,7 @@ public class Testbase {
 			driver = new FirefoxDriver();
 
 			driver.get("http://www.flipkart.com/");
-			driver.get("http://www.flipkart.com/");
+			
 
 			driver.manage().deleteAllCookies();
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
